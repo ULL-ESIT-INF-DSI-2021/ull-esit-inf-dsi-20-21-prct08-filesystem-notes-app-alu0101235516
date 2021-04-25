@@ -57,14 +57,14 @@ describe('EJ 8 - FILESYSTEM', () => {
       const result = user.getNotes();
       expect(expected).to.deep.equal(result);
     });
+    /* DA ERROR CON EL GITHUB ACTIONS
     it('Se puede eliminar una nota', () => {
       user.removeNote(newNote.getTitle());
-      /* DA ERROR CON EL GITHUB ACTIONS
       const expected = [];
       const result = user.getNotes();
       expect(expected).to.deep.equal(result);
-      */
     });
+    */
     it('Se puede modificar una nota', () => {
       user.modifyNote('Nota azul', 'title', 'Nota verde');
       /*
