@@ -15,5 +15,10 @@ describe('EJ 8 - FILESYSTEM', () => {
       const result = note.getBody();
       expect(expected).to.be.equal(result);
     });
+    it('Se puede acceder al color de la nota', () => {
+      const expected = "red";
+      const result = note.getColor();
+      expect(expected).to.be.equal(result);
+    });
   });
 });
