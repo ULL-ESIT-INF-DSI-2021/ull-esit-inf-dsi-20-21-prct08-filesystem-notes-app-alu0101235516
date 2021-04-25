@@ -1,7 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Note} from '../src/Notes/note';
-import {jsonFormat, User} from '../src/Users/users';
+import {User} from '../src/Users/users';
 
 describe('EJ 8 - FILESYSTEM', () => {
   describe('Métodos de la clase Note', () => {
@@ -78,9 +78,6 @@ describe('EJ 8 - FILESYSTEM', () => {
     });
     it('Se puede leer una nota del usuario', () => {
       user.readNote('Nota final');
-    });
-    it('Formato JSON', () => {
-      jsonFormat(newNote.getTitle(), newNote.getBody(), newNote.getColor());
     });
   });
 });
