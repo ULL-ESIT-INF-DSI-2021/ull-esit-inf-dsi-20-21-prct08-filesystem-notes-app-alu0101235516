@@ -84,7 +84,7 @@ Por fuera de la clase, pero dentro del mismo fichero, tenemos una función exter
   
  ![Tests](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/gh-pages/images/test.png)
  
-  **Aqui tenemos el cubrimiento con el coveralls del código**
+  **Aqui tenemos el cubrimiento del código**
   
  ![Codigo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/gh-pages/images/coverage.png)
  
