@@ -20,5 +20,10 @@ describe('EJ 8 - FILESYSTEM', () => {
       const result = note.getColor();
       expect(expected).to.be.equal(result);
     });
+    it('Se puede modificar el titulo de la nota', () => {
+      const expected = "Esto es una nota azul"; note.setTitle("Esto es una nota azul");
+      const result = note.getTitle();
+      expect(expected).to.be.equal(result);
+    });
   });
 });
