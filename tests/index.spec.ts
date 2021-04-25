@@ -46,5 +46,10 @@ describe('EJ 8 - FILESYSTEM', () => {
       const result = user.getUsername();
       expect(expected).to.be.equal(result);
     });
+    it('Se puede modificar el nombre del usuario', () => {
+      const expected = "alu010123381"; user.setUsername("alu010123381");
+      const result = user.getUsername();
+      expect(expected).to.be.equal(result);
+    });
   });
 });
