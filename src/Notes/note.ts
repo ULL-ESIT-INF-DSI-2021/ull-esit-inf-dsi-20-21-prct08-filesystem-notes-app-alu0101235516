@@ -55,3 +55,4 @@ export class Note {
     this.color = newColor;
   }
 }
+

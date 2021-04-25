@@ -201,3 +201,4 @@ export function jsonFormat(title: string, body: string, color: string): string {
   return '{\n\t"title\": \"' + title + '\",\n\t"body\": \"' + body + '\",\n\t"color\": \"' + color + '\"\n}';
 }
 
+
