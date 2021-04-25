@@ -1,4 +1,4 @@
-# Práctica 8: (Nombre)
+# Práctica 8: Aplicación de procesamiento de notas de texto.
 ## Autor: Adrián Hernández Suárez
 ### Horario: PE103 - Jueves
 
