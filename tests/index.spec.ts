@@ -73,5 +73,8 @@ describe('EJ 8 - FILESYSTEM', () => {
       expect(expected).to.deep.equal(result);
       */
     });
+    it('Se puede listar las notas de un usuario', () => {
+      user.listNotes();
+    });
   });
 });

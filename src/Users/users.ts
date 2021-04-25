@@ -144,15 +144,15 @@ export class User {
   }
 
 
-  public listNotes(username: string) {
+  public listNotes() {
     const existFile: boolean = fs.existsSync(`src/Database/${this.username}`);
 
     if (existFile == true) {
       console.log(chalk.blue(`¡Notas de ${this.username}!`));
       console.log('------------------');
 
-      fs.readdirSync(`src/Database/${username}`).forEach((item) => {
-        const userContent = fs.readFileSync(`src/Database/${username}/${item}`);
+      fs.readdirSync(`src/Database/${this.username}`).forEach((item) => {
+        const userContent = fs.readFileSync(`src/Database/${this.username}/${item}`);
         const data = JSON.parse(userContent.toString());
 
         switch (data.color) {
@@ -171,7 +171,7 @@ export class User {
         }
       });
     } else {
-      console.error(chalk.red(`${username} user, doesnt exists!`));
+      console.error(chalk.red(`${this.username} user, doesnt exists!`));
     }
   }
 }
