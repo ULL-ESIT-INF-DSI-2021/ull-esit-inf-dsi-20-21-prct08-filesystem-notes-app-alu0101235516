@@ -36,6 +36,10 @@ export class User {
     this.username = newUsername;
   }
 
+  getNotes() {
+    return this.userNotes;
+  }
+
 
   /**
    * Método para añadir una nueva nota al usuario.

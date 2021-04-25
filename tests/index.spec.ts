@@ -41,6 +41,7 @@ describe('EJ 8 - FILESYSTEM', () => {
 
   describe('Métodos de la clase User', () => {
     const user = new User("alu0101235516");
+    const note = new Note("Nota roja", "Esto es una nota roja", "red");
     it('Se puede acceder al nombre del usuario', () => {
       const expected = "alu0101235516";
       const result = user.getUsername();
@@ -50,6 +51,11 @@ describe('EJ 8 - FILESYSTEM', () => {
       const expected = "alu010123381"; user.setUsername("alu010123381");
       const result = user.getUsername();
       expect(expected).to.be.equal(result);
+    });
+    it('Se puede añadir una nota nueva', () => {
+      const expected = [note]; user.addNote(note.getTitle(), note.getBody(), note.getColor());
+      const result = user.getNotes();
+      expect(expected).to.deep.equal(result);
     });
   });
 });
