@@ -10,5 +10,10 @@ describe('EJ 8 - FILESYSTEM', () => {
       const result = note.getTitle();
       expect(expected).to.be.equal(result);
     });
+    it('Se puede acceder al cuerpo de la nota', () => {
+      const expected = "Esto es una nota roja";
+      const result = note.getBody();
+      expect(expected).to.be.equal(result);
+    });
   });
 });
