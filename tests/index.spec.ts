@@ -1,6 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Note} from '../src/Notes/note';
+import {User} from '../src/Users/users';
 
 describe('EJ 8 - FILESYSTEM', () => {
   describe('Métodos de la clase Note', () => {
@@ -39,10 +40,10 @@ describe('EJ 8 - FILESYSTEM', () => {
 
 
   describe('Métodos de la clase User', () => {
-    const note = new Note("Nota roja", "Esto es una nota roja", "red");
-    it('Se puede acceder al titulo de la nota', () => {
-      const expected = "Nota roja";
-      const result = note.getTitle();
+    const user = new User("alu0101235516");
+    it('Se puede acceder al nombre del usuario', () => {
+      const expected = "alu0101235516";
+      const result = user.getUsername();
       expect(expected).to.be.equal(result);
     });
   });
