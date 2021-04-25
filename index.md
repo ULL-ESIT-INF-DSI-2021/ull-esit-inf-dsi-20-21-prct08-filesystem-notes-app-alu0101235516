@@ -41,653 +41,102 @@ Los requisitos que debe cumplir la aplicación de procesamiento de notas de text
 
   **La clase Note**
 
-
-  La clase `fighter` es la clase padre de este ejercicio, dicha clase es de tipo abstracto, el cual contiene los atributos básicos de los luchadores que van a competir en nuestro combate. A parte de tener dicho constrcutor con el nombre, la altura, el peso, y las estadísticas básicas, tendremos los `getters` y `setters` de cada una de ellas, además de una función llamada `getUniverse()` la cual la usaremos para ver a que universo pertence nuestro luchador.
-
-  **La clase Pokemon**
+  La clase `Note`, es una representación de una nota, es decir, contiene todos los valores que una nota debería tener. Dentro de esta clase, podemos encontrar varios métodos, la gran mayoría dirigidos al manejo y acceso de los atributos privados, los cuales son:
   
-```TypeScript
-import {Fighter} from './fighter';
-
-type poktype = 'hierba' | 'electrico' | 'fuego' | 'agua';
-
-export class Pokemon extends Fighter {
-  private universePH: string = "Pokemon";
-
-  /**
-   * Constructor de la clase
-   * @param name nombre del fighter
-   * @param weight peso del fighter
-   * @param height altura del fighter
-   * @param phrase frase célebre del fighter
-   * @param stats estadísticas del fighter
-   * @param PokType tipo de pokemon que es
-   */
-
-  constructor(name: string, weight: number, height: number, phrase: string, stats: [number, number, number, number],
-              private PokType: poktype) {
-    super(name, weight, height, phrase, stats);
-  }
-
-  /**
-   * Funcion para obtener el tipo de pokemon
-   * @returns el tipo de pokemon que es
-   */
-  public getPokType() {
-    return this.PokType;
-  }
-  /**
-   * Instanciar un nuevo tipo a un pokemon
-   * @param PokType el tipo que quieres instanciar
-   */
-  public setPokType(PokType: poktype) {
-    this.PokType = PokType;
-  }
-
-  /**
-   * Funcion para obtener el universo del que pertenece el fighter
-   * @returns el universo del fighter
-   */
-  public getUniverse(): string {
-    return this.universePH;
-  }
-}
-```
-  La clase `Pokemon` la utilizamos para poder crear un objeto de tipo `Pokemon` que tenga diferentes atributos, desde nuestro constructor recibiremos, el nombre del pokemon, el peso, la altura, el tipo, y finalmente las estadísticas básicas, que son (el ataque, la defensa, la velocidad, y la vida maxima). 
-  Por otro lado tenemos los métodos `getters` de cada uno de los atributos del constructor que sean propios de esta clase, el cual nos servirá para poder acceder a cada uno de ellos y además hemos creado, los `setter` de cada atributo.
-  
-**la clase Naruto**
-
-```TypeScript
-import {Fighter} from './fighter';
-
-type chakraType = 'rayo' | 'viento' | 'fuego' | 'agua' | 'tierra' | 'madera';
-type ocularTec = 'sharingan' | 'byakugan' | 'rinnegan' | 'tenseigan';
-
-export class Naruto extends Fighter {
-  private universePH: string = "Naruto";
-
-  /**
-   * Constructor de la clase
-   * @param name nombre del fighter
-   * @param weight peso del fighter
-   * @param height altura del fighter
-   * @param phrase frase célebre del fighter
-   * @param stats estadísticas del fighter
-   * @param chakra tipo de chakra del fighter
-   * @param ocular poder ocular (o no) del fighter
-   */
-
-  constructor(name: string, weight: number, height: number, phrase: string, stats: [number, number, number, number],
-              private chakra: chakraType,
-              private ocular?: ocularTec) {
-    super(name, weight, height, phrase, stats);
-  }
-
-  /**
-   * Funcion para acceder al chakra del fighter
-   * @returns el tipo de chakra
-   */
-  public getChakra() {
-    return this.chakra;
-  }
-  /**
-   * Funcion para instanciar un chakra nuevo a un fighter
-   * @param chakra el tipo de chakra a instanciar
-   */
-  public setChakra(chakra: chakraType) {
-    this.chakra = chakra;
-  }
-
-  /**
-   * Funcion para acceder al poder ocular del fighter
-   * @returns el tipo de poder ocular
-   */
-  public getOcular() {
-    return this.ocular;
-  }
-  /**
-   * Funcion para instanciar un poder ocular nuevo a un fighter
-   * @param chakra el tipo de poder ocular a instanciar
-   */
-  public setOcular(ocular: ocularTec) {
-    this.ocular = ocular;
-  }
-
-  /**
-   * Funcion para obtener el universo del que pertenece el fighter
-   * @returns el universo del fighter
-   */
-  public getUniverse(): string {
-    return this.universePH;
-  }
-}
-```
-  La clase `Naruto` la utilizamos para poder crear un objeto de tipo `Naruto` que tenga diferentes atributos, desde nuestro constructor recibiremos, el nombre del personaje, el peso, la altura, el tipo de chakra, el poder ocular (si tiene), y finalmente las estadísticas básicas, que son (el ataque, la defensa, la velocidad, y la vida maxima). 
-  Por otro lado tenemos los métodos `getters` de cada uno de los atributos del constructor que sean propios de esta clase, el cual nos servirá para poder acceder a cada uno de ellos y además hemos creado, los `setter` de cada atributo.
-  
-**La clase Blizzard**
-
-```TypeScript
-import {Fighter} from './fighter';
-
-type chakraType = 'mago' | 'brujo' | 'cazador' | 'druida';
-type tipapoyo = 'alianza' | 'horda';
-
-export class Blizzard extends Fighter {
-  private universePH: string = "Blizzard";
-
-  /**
-   * Constructor de la clase
-   * @param name nombre del fighter
-   * @param weight peso del fighter
-   * @param height altura del fighter
-   * @param phrase frase célebre del fighter
-   * @param stats estadísticas del fighter
-   * @param raza raza del fighter
-   * @param apoyo a que bando apoya el fighter
-   */
-
-  constructor(name: string, weight: number, height: number, phrase: string, stats: [number, number, number, number],
-              private raza: chakraType,
-              private apoyo: tipapoyo) {
-    super(name, weight, height, phrase, stats);
-  }
-
-  /**
-   * Funcion para acceder a la raza
-   * @returns raza del fighter
-   */
-  public getRaza() {
-    return this.raza;
-  }
-  /**
-   * Funcion para instanciar una raza a un fighter
-   * @param raza tipo de raza que quieres instanciar
-   */
-  public setRaza(raza: chakraType) {
-    this.raza = raza;
-  }
-
-  /**
-   * Funcion para acceder a l bando que apoya
-   * @returns bando que apoya el fighter
-   */
-  public getApoyo() {
-    return this.apoyo;
-  }
-  /**
-   * Funcion para instanciar el bando a un fighter
-   * @param apoyo bando que quiere apoyar
-   */
-  public setApoyo(apoyo: tipapoyo) {
-    this.apoyo = apoyo;
-  }
-
-  /**
-   * Funcion para obtener el universo del que pertenece el fighter
-   * @returns el universo del fighter
-   */
-  public getUniverse(): string {
-    return this.universePH;
-  }
-}
-```
-  La clase `Blizzard` la utilizamos para poder crear un objeto de tipo `Blizzard` que tenga diferentes atributos, desde nuestro constructor recibiremos, el nombre del personaje, el peso, la altura, su raza, el bando que apoya, y finalmente las estadísticas básicas, que son (el ataque, la defensa, la velocidad, y la vida maxima). 
-  Por otro lado tenemos los métodos `getters` de cada uno de los atributos del constructor que sean propios de esta clase, el cual nos servirá para poder acceder a cada uno de ellos y además hemos creado, los `setter` de cada atributo.
-  
-**La clase FightBook**
-  
-```TypeScript
-import {Fighter} from './fighter';
-
-/**
- * Clase fight book contiene todos los luchadores.
- */
-export class FightBook {
-  /**
-   * Constructor de la clase
-   * @param GestorFighter Conjunto de luchadores
-   */
-
-  constructor(private GestorFighter: Fighter[]) {}
-
-  /**
-   * Funcion para acceder a la variable privada GestorFighter
-   * @returns los luchadores que tenemos guardados
-   */
-
-  public getFighters() {
-    return this.GestorFighter;
-  }
-
-  /**
-   * Funcion para añadir un luchadores a la base de datos
-   * @param luchadores nuevo luchadores que quieres añadir
-   */
-
-  public añadirFighter(fighter: Fighter) {
-    this.GestorFighter.push(fighter);
-  }
-
-  /**
-   * Funcion para mostrar por pantalla en forma de tabla la fight book
-   */
-
-  public mostrarFighterBook() {
-    console.table(this.GestorFighter, ["name", "weight", "height", "PokType", "chakra", "ocular", "raza", "apoyo"]);
-  }
-}
-```
-  La clase `FightBook` nos sirve para almacenar todos los luchadores en un sitio, es decir, a esta clase, le podremos introducir un objeto de tipo `Pokemon`, `Naruto` o `Blizzard` el cual se quedará almacenado en nuestro **Libro de Luchadores**. Lo que tendrá el constructor de esta clase será un vector, el cual almacenará a todos los luchadores, pudiendo acceder a ellos o añadir otro a la base de datos.
-  Tenemos el método `getFighters()` el cual retornará los luchadores que tenemos guardado dentro de ella, el método `añadirFighter()` el cual sirve (como nombre antes) para añadir un nuevo luchador al libro.
-  Y finalmente tenemos la función `mostrarFighterBook()` la cual nos sirve para mostrar en forma de tabla, los luchadores dentro del libro con sus estadísticas, en este caso he decidido únicamente mostrar el nombre, el peso, la altura, la raza, el poder ocular y el tipo de pokemon que es.
-  
-  **La clase Combat**
-  
-```TypeScript
-import {Fighter} from './fighter';
-import {Naruto} from './naruto';
-import {Pokemon} from './pokemon';
-
-export class Combat {
-  /**
-   * COnstructor de la clase
-   * @param fighter1 Primer luchador
-   * @param fighter2 Segundo luchador
-   */
-  constructor(private fighter1: Fighter, private fighter2: Fighter) {
-  }
-
-  /**
-   * Funcion para acceder a los datos del luchador 1
-   * @returns los datos del luchador 1
-   */
-  public getFighter1() {
-    return this.fighter1;
-  }
-  /**
-   * Funcion para acceder a los datos del luchador 2
-   * @returns los datos del luchador 2
-   */
-  public getFighter2() {
-    return this.fighter2;
-  }
-
-  /**
-   * Funcion para ver entre quien es el combate
-   * @returns Una string con la informacion del combate
-   */
-  public getCombate() {
-    return (`El combate es entre ${this.fighter1.getName()} y ${this.fighter2.getName()}`);
-  }
-
-  /**
-   * Funcion para calcular el daño de cada luchador
-   * @param FighterAttack que luchador esta atacando
-   * @returns el daño que hace el luchador que esta atacando
-   */
-  public damageGet(FighterAttack: number) {
-    let efectFighter1: number = 0;
-    let efectFighter2: number = 0;
-    let daño: number = 0;
-    let dañoInt: number = 0;
-
-    switch (this.fighter1.getUniverse()) {
-      case "Pokemon": {
-        if (this.fighter2.getUniverse() == "Blizzard") {
-          efectFighter1 = 2;
-          efectFighter2 = 0.5;
-        } else if (this.fighter2.getUniverse() == "Naruto") {
-          efectFighter1 = 0.5;
-          efectFighter2 = 2;
-        } else {
-          if (this.fighter1 instanceof Pokemon && this.fighter2 instanceof Pokemon) {
-            switch (this.fighter1.getPokType()) {
-              case `fuego`: {
-                if (this.fighter2.getPokType() == `hierba`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getPokType() == `agua` || this.fighter2.getPokType() == `fuego`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              } break;
-
-              case `agua`: {
-                if (this.fighter2.getPokType() == `fuego`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                }
-              } break;
-
-              case `hierba`: {
-                if (this.fighter2.getPokType() == `agua`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getPokType() == `fuego` || this.fighter2.getPokType() == `hierba`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              } break;
-
-              case `electrico`: {
-                if (this.fighter2.getPokType() == `agua`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getPokType() == `electrico`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              }
-            }
-          }
-        }
-      } break;
-
-      case "Naruto": {
-        if (this.fighter2.getUniverse() == "Pokemon") {
-          efectFighter1 = 2;
-          efectFighter2 = 0.5;
-        } else if (this.fighter2.getUniverse() == "Blizzard") {
-          efectFighter1 = 0.5;
-          efectFighter2 = 2;
-        } else {
-          if (this.fighter1 instanceof Naruto && this.fighter2 instanceof Naruto) {
-            switch (this.fighter1.getChakra()) {
-              case `rayo`: {
-                if (this.fighter2.getChakra() == `viento` || this.fighter2.getChakra() == `agua`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `madera` || this.fighter2.getChakra() == `fuego`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              } break;
-
-              case `viento`: {
-                if (this.fighter2.getChakra() == `fuego` || this.fighter2.getChakra() == `tierra`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `madera` || this.fighter2.getChakra() == `rayo`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              } break;
-
-              case `fuego`: {
-                if (this.fighter2.getChakra() == `madera` || this.fighter2.getChakra() == `rayo`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `viento` || this.fighter2.getChakra() == `agua`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              } break;
-
-              case `agua`: {
-                if (this.fighter2.getChakra() == `fuego`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `rayo` || this.fighter2.getChakra() == `tierra`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              }
-
-              case `tierra`: {
-                if (this.fighter2.getChakra() == `agua`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `viento`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              }
-
-              case `madera`: {
-                if (this.fighter2.getChakra() == `viento` || this.fighter2.getChakra() == `rayo`) {
-                  efectFighter1 = 2;
-                  efectFighter2 = 0.5;
-                } else if (this.fighter2.getChakra() == `fuego`) {
-                  efectFighter1 = 0.5;
-                  efectFighter2 = 2;
-                } else {
-                  efectFighter1 = 1;
-                  efectFighter2 = 1;
-                }
-              }
-            }
-          }
-        }
-      } break;
-
-      case "Blizzard": {
-        if (this.fighter2.getUniverse() == "Naruto") {
-          efectFighter1 = 2;
-          efectFighter2 = 0.5;
-        } else if (this.fighter2.getUniverse() == "Pokemon") {
-          efectFighter1 = 0.5;
-          efectFighter2 = 2;
-        } else {
-          efectFighter1 = 1;
-          efectFighter2 = 1;
-        }
-      } break;
-    }
-
-    if (FighterAttack == 0) {
-      daño = 50 * (this.fighter1.getAT() / this.fighter2.getDF()) * efectFighter1;
-    } else {
-      daño = 50 * (this.fighter2.getAT() / this.fighter1.getDF()) * efectFighter2;
-    }
-    dañoInt = Math.round(daño);
-    return dañoInt;
-  }
-
-  /**
-   * Funcion para comenzar con la simulación del combate
-   * @returns el vencedor del combate
-   */
-  public start() {
-    let FighterAttack: number = 0;
-    let i: number = 0;
-
-    while ((this.fighter1.getHP() > 0) && (this.fighter2.getHP() > 0)) {
-      console.log(`RONDA ${i}`);
-      i++;
-
-      if (FighterAttack == 0) {
-        console.log(`Esta atacando: ${this.fighter1.getName()}`);
-        this.fighter2.setHP((this.fighter2.getHP()) - this.damageGet(FighterAttack));
-        console.log(this.fighter1.getPhrase());
-        console.log(`Vida de ${this.fighter2.getName()} restante: ${this.fighter2.getHP()} HP.`);
-        console.log();
-        FighterAttack++;
-      } else {
-        console.log(`Esta atacando: ${this.fighter2.getName()}`);
-        this.fighter1.setHP((this.fighter1.getHP()) - this.damageGet(FighterAttack));
-        console.log(this.fighter2.getPhrase());
-        console.log(`Vida de ${this.fighter1.getName()} restante: ${this.fighter1.getHP()} HP.`);
-        console.log();
-        FighterAttack--;
-      }
-    }
-    console.log();
-    if (this.fighter1.getHP() < 0) {
-      console.log(`EL VENCEDOR ES ${this.fighter2.getName().toUpperCase()}!!!`);
-      return this.fighter2.getName().toUpperCase();
-    } else {
-      console.log(`EL VENCEDOR ES ${this.fighter1.getName().toUpperCase()}!!!`);
-      return this.fighter1.getName().toUpperCase();
-    }
-  }
-}
-```
- Finalmente tenemos la clase `Combat`, esta clase tendrá como parámetros dos luchadores diferentes, los cuales se prestarán a hacer una simulación de combate. Para poder ver quien gana el combate, primero tendremos que ver el daño que le hace un luchador a otro, para esto hacemos uso del método `damageGet()` el cual, según el tipo de luchador que sea y a que universo pertenezca, verá la eficacia que le hace a su adversario, es decir, si el tipo de luchador es del universo naruto, pues le hará una eficacia mayor a un luchador del universo pokemon. Si por el contrario, por ejemplo, pertenzcan al mismo universo, en el caso de los pokemon, tenemos un `switch` dentro de esta opción que nos dice que eficacia tiene un pokemon sobre otro, es decir, que veremos que un pokemon de tipo `fuego` le hará más daño a un pokemon de tipo `hierba`.
+  - `title`: Titulo de la nota.
+  - `body`: Cuerpo o mensaje de la nota.
+  - `color`: Color que tiene la nota.
  
- Para poder hacer eso, hacemos uso de un `switch`, este switch es el mismo que use en la práctica 5.
- Hay que nombrar que a nuestro método le entra como parámetro el pokemon que ataca, si el pokemon 0 (que es el pokemon 1) o el pokemon 1 (que es el pokemon 2), dependiendo de esto, al final del método, se realizará una función de daño diferente, y se retornará.
+ Los métodos que tiene mi clase `Note`, son:
  
- Al final de la clase, tenemos nuestro método `start()` este método es el principal de la clase, ya que es el que simula el combate, cuando el combate empiece, y mientas alguno de los dos luchadores tengan más de 0 de HP, seguirá el combate, lo que hace nuestro método es que según el luchador que ataque, se le hará un daño al adversario que le restará vida. Cuando uno de los dos luchadores tenga la vida inferior o igual a 0 se decidirá el ganador del combate.
+  - `getTitle()`: Método para acceder al título de la nota.
+  - `setTitle(newTitle: string)`: Método para cambiar el título de la nota.
+  - `getBody()`: Método para acceder al cuerpo de la nota.
+  - `setBody(newBody: string)`: Método para cambiar el cuerpo de la nota.
+  - `getColor()`: Método para acceder al color de la nota.
+  - `setColor(newColor: 'red' | 'blue' | 'yellow' | 'green')`: Método para cambiar el color de la nota.
+
+  Para ver el código en más profundidad, y con mejor claridad, vaya al siguiente enlace, [Clase Note](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/master/src/Notes/note.ts).
+
+  **La clase User**
+  
+  La clase `User`, es una representación de los usuarios, es decir, en esta clase, nos encontraremos con todos los métodos necesarios para que un usuario pueda añadir, modificar, eliminar, o si quiere, listar todas las notas que tiene y leer su contenido. Esta clase, esta realizada con el fin de gestionar el directorio del usuario, según como se desee, para ello hacemos uso de los siguientes parámetros:
+  
+  - `username`: Nombre de usuario.
+  - `userNotes`: Un array que contiene las notas del usuario.
  
-   **Aqui tenemos el test del código:**
-    
- ```TypeScript
-import 'mocha';
-import {expect} from 'chai';
-import {Pokemon} from '../src/ejercicio-1/pokemon';
-import {Naruto} from '../src/ejercicio-1/naruto';
-import {Blizzard} from '../src/ejercicio-1/blizzard';
-// import {Fighter} from '../src/ejercicio-1/fighter';
-import {Combat} from '../src/ejercicio-1/combat';
-import {FightBook} from '../src/ejercicio-1/fightBook';
+ Los métodos que tiene mi clase `User`, son:
+ 
+  - `getUsername()`: Método para acceder al nombre del usuario.
+  - `setUsername(newUsername: string)`: Método para cambiar el nombre del usuario.
+  - `getNotes()`: Método para acceder a las notas del usuario.
+  - `addNote(title: string, body: string, color: 'red' | 'blue' | 'yellow' | 'green')`: Método para que un usuario pueda crear una nueva nota dentro de su directorio, esta tendra como nombre, el que le ponga en el título.
+  - `removeNote(title: string)`: Método para que un usuario pueda eliminar una nota dentro de su directorio, según el titulo que facilite el usuario, se eliminará.
+  - `modifyNote(title: string, newParam: string, valParam: string)`: Método para modificar una nota del usuario, para ello, seleccionaremos el titulo de la nota a modificar, el nuevo parametro que queremos modificar y por lo que lo queremos sustituir.
+  - `readNote(title: string)`: Método para leer el contenido de una nota que coincida con el titulo que facilita el usuario.
+  - `listNote()`: Método para mostrar el título de todas las notas que tiene el usuario.
+
+Por fuera de la clase, pero dentro del mismo fichero, tenemos una función externa, la cual la usamos para poner en formato JSON el contenido de las notas, esta función se llama `jsonFormat(title: string, body: string, color: string)`.
+
+  Para ver el código en más profundidad, y con mejor claridad, vaya al siguiente enlace, [Clase User](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/master/src/Users/users.ts).
+ 
+   **Aqui tenemos la salida del código ejecutando el `npm run test`**
+  
+ ![Tests](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/gh-pages/images/test.png)
+ 
+  **Aqui tenemos el cubrimiento con el coveralls del código**
+  
+ ![Codigo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/gh-pages/images/coverage.png)
+ 
+ 
+   **Fichero index (ejecución de la aplicación)**
+
+Una vez creadas las clases, se pasará a crear la aplicación. En esta lo que se ha hecho es que a través de yargs se han añadido los siguientes comandos:
+
+  - `add`: Añade una nota al usuario, se le tiene que pasar como parámetros el usuario `--user="usuario"`, el título de la nota `--title="Título"`, el cuerpo de la nota  `--body="Cuerpo"` y el color de la nota, que se pueden poner 4 colores, red, blue, green o yellow `--color="blue"`.
+  - `modify`: Modifica un parámetro concreto de una nota, se le tiene que pasar como parámetro obligatoriamente el usuario `--user="usuario"` y el título de la nota `--title="Título"` y opcionalmente el nuevo valor del campo que se quiere cambiar, el título `--newTitle="Nuevo Título"`, el cuerpo `--newBody="Nuevo Cuerpo"` o el color `--newColor="red"`.
+  - `remove`: Borra una nota concreta al usuario, se le tiene que pasar como parámetros el usuario `--user="usuario"` y el título de la nota `--title="Título"`.
+  - `list`: Lista los títulos de las notas de los usuarios, se le tiene que pasar como parámetro el usuario `--user="usuario"`.
+  - `read`: Lee una nota concreta al usuario, se le tiene que pasar como parámetros el usuario `--user="usuario"` y el título de la nota `--title="Título"`.
+
+Finalmente, para realizar las pruebas, tendremos que introducir en la terminar `node (ruta del archivo en dist) (comando) (parametros del comando)`, tal y como podemos ver en la siguiente imagen:
+
+ ![Comandos](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct08-filesystem-notes-app-alu0101235516/blob/gh-pages/images/comandos.png)
+ 
+ ### Conclusiones.
+
+  Para concluir, creo que la práctica ha estado divertida, y ha sido productiva, ha sido interesante el uso del chalk y el del yargs, ambas herramientas, creo que dan un punto de partida a las aplicaciones bastante buena, a partir de ahora, implementando esto y lo que ya hemos aprendido, creo que podremos hacer mejores proyectos. Poco a poco me estoy dando cuenta que me gusta más trabajar con ts o js, y pienso que es un lenguaje muy ágil y flexible.
 
 
-describe(`EJ 1 - EL COMBATE DEFINITIVO`, () => {
-  const Starmie: Pokemon = new Pokemon("Starmie", 80, 1.1, "UUUR!", [75, 85, 115, 100], "agua");
-  const Electrode: Pokemon = new Pokemon("Electrode", 66.6, 1.2, "AAARHG!", [50, 70, 150, 100], "electrico");
+### _**Bibliografía.**_
 
-  const Hashirama: Naruto = new Naruto("Hashirama", 74, 1.80, "Wood Kage Technique!", [115, 95, 80, 100], "madera");
-  const Madara: Naruto = new Naruto("Madara", 71, 1.80, "Susanoo!", [120, 80, 95, 100], "fuego", "sharingan");
-
-  const Malfurion: Blizzard = new Blizzard("Malfurion", 94, 1.95, "By nature!", [97, 80, 111, 100], "druida", "alianza");
-  const Guldan: Blizzard = new Blizzard("Guldan", 89, 1.75, "Your soul will be mine!", [135, 60, 101, 100], "brujo", "horda");
-
-  const LibroLuchadores = new FightBook([]);
-
-  LibroLuchadores.añadirFighter(Starmie);
-  LibroLuchadores.añadirFighter(Electrode);
-  LibroLuchadores.añadirFighter(Hashirama);
-  LibroLuchadores.añadirFighter(Madara);
-  LibroLuchadores.añadirFighter(Malfurion);
-  LibroLuchadores.añadirFighter(Guldan);
-
-
-  describe(`Clase padre (Fighter) instancias`, () => {
-    it('Se puede instanciar un pokemon', () => {
-      expect(Starmie).not.to.be.equal(null);
-    });
-    it('Se puede instanciar un pokemon', () => {
-      expect(Electrode).not.to.be.equal(null);
-    });
-    it('Se puede instanciar un personaje de naruto', () => {
-      expect(Hashirama).not.to.be.equal(null);
-    });
-    it('Se puede instanciar un personaje de naruto', () => {
-      expect(Madara).not.to.be.equal(null);
-    });
-    it('Se puede instanciar un personaje de naruto', () => {
-      expect(Malfurion).not.to.be.equal(null);
-    });
-    it('Se puede instanciar un personaje de naruto', () => {
-      expect(Guldan).not.to.be.equal(null);
-    });
-  });
-
-  describe(`Clase pokemon (Acceso)`, () => {
-    it('Nombre Pokemon', () => {
-      expect(Starmie.getName()).to.be.equal("Starmie");
-    });
-    it('Peso Pokemon', () => {
-      expect(Starmie.getWeight()).to.be.equal(80);
-    });
-    it('Altura Pokemon', () => {
-      expect(Starmie.getHeight()).to.be.equal(1.1);
-    });
-    it('Tipo Pokemon', () => {
-      expect(Starmie.getPokType()).to.be.equal("agua");
-    });
-    it('Ataque Pokemon', () => {
-      expect(Starmie.getAT()).to.be.equal(75);
-    });
-    it('Defensa Pokemon', () => {
-      expect(Starmie.getDF()).to.be.equal(85);
-    });
-    it('Velocidad Pokemon', () => {
-      expect(Starmie.getSP()).to.be.equal(115);
-    });
-    it('Vida Pokemon', () => {
-      expect(Starmie.getHP()).to.be.equal(100);
-    });
-  });
-
-  describe(`Probar mostrado del libro de luchadores en formato tabla`, () => {
-    it('Se puede crear un tipo Fightbook', () => {
-      expect(LibroLuchadores.getFighters()).not.to.be.equal(null);
-    });
-    it('Todos los luchadores del libro', () => {
-      LibroLuchadores.mostrarFighterBook();
-    });
-  });
-
-  describe(`Clase naruto (Acceso)`, () => {
-    it('Elemento Chakra', () => {
-      expect(Hashirama.getChakra()).to.be.equal("madera");
-    });
-    it('Poder ocular', () => {
-      expect(Madara.getOcular()).to.be.equal("sharingan");
-    });
-  });
-
-  describe(`Clase blizzard (Acceso)`, () => {
-    it('Raza del luchador', () => {
-      expect(Malfurion.getRaza()).to.be.equal("druida");
-    });
-    it('Apoyo a un bando', () => {
-      expect(Malfurion.getApoyo()).to.be.equal("alianza");
-    });
-  });
-
-  describe(`Combate principal`, () => {
-    const combatePrincipal = new Combat(Hashirama, Malfurion);
-    const combateSecundario = new Combat(Starmie, Electrode);
-
-    it('Combatiente 1', () => {
-      expect(combatePrincipal.getFighter1().getUniverse()).to.be.equal("Naruto");
-    });
-    it('Combatiente 2', () => {
-      expect(combatePrincipal.getFighter2().getUniverse()).to.be.equal("Blizzard");
-    });
-    it('Combate principal', () => {
-      expect(combatePrincipal.getCombate()).to.be.equal(`El combate es entre Hashirama y Malfurion`);
-    });
-    it('Comprobación del daño del fighter 1 al 2', () => {
-      expect(combatePrincipal.damageGet(0)).to.be.equal(36);
-    });
-    it('Comprobación del catching phrase', () => {
-      expect(combatePrincipal.getFighter1().getPhrase()).to.be.equal("Wood Kage Technique!");
-    });
-    it('QUE EMPIECE EL COMBATE!', () => {
-      expect(combateSecundario.start()).to.be.equal(`ELECTRODE`);
-    });
-  });
-});
-```
+Nombre | Enlaces
+-------|--------
+Introducción a Markdown | https://guides.github.com/features/mastering-markdown/
+Información sobre GitHub Pages | https://docs.github.com/en/github/working-with-github-pages
+Sitio web de Jekyll | https://jekyllrb.com/
+GutHub Learning Lab | https://lab.github.com/
+Curso de GitHub Pages | https://lab.github.com/githubtraining/github-pages
+Visual Studio Code | https://code.visualstudio.com/
+Instalar Visual Studio Code | https://code.visualstudio.com/docs/setup/setup-overview
+Tutorial VSCode sobre Additional Components | https://code.visualstudio.com/docs/setup/additional-components
+Tutorial VSCode sobre User Interface | https://code.visualstudio.com/docs/getstarted/userinterface
+Tutorial VSCode sobre Basic Editing | https://code.visualstudio.com/docs/editor/codebasics
+Tutorial VSCode sobre Extension MarketPlace | https://code.visualstudio.com/docs/editor/extension-gallery
+Tutorial VSCode sobre IntelliSense | https://code.visualstudio.com/docs/editor/intellisense
+Tutorial VSCode sobre Code Navigation | https://code.visualstudio.com/docs/editor/editingevolved
+Tutorial VSCode sobre Debugging | https://code.visualstudio.com/docs/editor/debugging
+Tutorial VSCode sobre Version Control | https://code.visualstudio.com/docs/editor/versioncontrol
+Tutorial VSCode sobre Working with GitHub | https://code.visualstudio.com/docs/editor/github
+Tutorial VSCode sobre Integrated Terminal | https://code.visualstudio.com/docs/editor/integrated-terminal
+Tutorial VSCode sobre Tasks | https://code.visualstudio.com/docs/editor/tasks
+Tutorial VSCode sobre Snippets | https://code.visualstudio.com/docs/editor/userdefinedsnippets
+Tutorial VSCode sobre Emmet | https://code.visualstudio.com/docs/editor/emmet
+Tutorial VSCode sobre Command Line | https://code.visualstudio.com/docs/editor/command-line
+Tutorial VSCode sobre  Multiroot Workspaces | https://code.visualstudio.com/docs/editor/multi-root-workspaces
+Tutorial VSCode sobre  Accessibility | https://code.visualstudio.com/docs/editor/accessibility
+Conectarnos desde VSCode a una máquina remota por SSH | https://code.visualstudio.com/docs/remote/ssh-tutorial
+Informe de la práctica 1 de DSI | https://ull-esit-inf-dsi-2021.github.io/ull-esit-inf-dsi-20-21-prct01-iaas-alu0101206479/
+Live Share Extension Pack | https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack
+Documentación de Visual Studio Live Share | https://docs.microsoft.com/en-us/visualstudio/liveshare/
+Libro Essential TypeScript: From Beginner to Pro | https://learning.oreilly.com/library/view/essential-typescript-from/9781484249796/html/Part_1.xhtml
