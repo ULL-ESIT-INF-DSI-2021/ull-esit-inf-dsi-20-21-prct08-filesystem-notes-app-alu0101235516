@@ -2,7 +2,9 @@ import {User} from './Users/users';
 import * as yargs from 'yargs';
 import * as chalk from 'chalk';
 
-
+/**
+ * Comando para añadir una nota nueva.
+ */
 yargs.command( {
   command: 'add',
   describe: 'Add a new note',
@@ -41,6 +43,9 @@ yargs.command( {
 });
 
 
+/**
+ * Comando para eliminar una nota de un usuario.
+ */
 yargs.command( {
   command: 'remove',
   describe: 'Remove an existing note',
@@ -65,6 +70,9 @@ yargs.command( {
 });
 
 
+/**
+ * Comando para modificar un una nota existente
+ */
 yargs.command( {
   command: 'modify',
   describe: 'Modify an existing note',
@@ -99,6 +107,9 @@ yargs.command( {
 });
 
 
+/**
+ * Comando para leer el contenido de una nota
+ */
 yargs.command( {
   command: 'read',
   describe: 'Read a note',
@@ -123,6 +134,9 @@ yargs.command( {
 });
 
 
+/**
+ * Comando para listar todas las notas de un usuario
+ */
 yargs.command( {
   command: 'list',
   describe: 'List user`s notes',

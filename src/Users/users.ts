@@ -36,6 +36,10 @@ export class User {
     this.username = newUsername;
   }
 
+  /**
+   * Método para acceder a las notas de un usuario
+   * @returns las notas del usuario en forma de array
+   */
   getNotes() {
     return this.userNotes;
   }
@@ -78,6 +82,12 @@ export class User {
   }
 
 
+  /**
+   * Método para modificar una nota
+   * @param title El titulo de la nota
+   * @param newParam El parámetro que queremos modificar
+   * @param valParam El nuevo valor del parámetro
+   */
   public modifyNote(title: string, newParam: string, valParam: string) {
     const existFile: boolean = fs.existsSync(`src/Database/${this.username}/${title}.json`);
 
@@ -109,6 +119,10 @@ export class User {
   }
 
 
+  /**
+   * Método para leer el contenido de una nota
+   * @param title El titulo de la nota que queremos leer
+   */
   public readNote(title: string) {
     const existFile: boolean = fs.existsSync(`src/Database/${this.username}/${title}.json`);
 
@@ -144,6 +158,9 @@ export class User {
   }
 
 
+  /**
+   * Método para listar todas las notas de un usuario
+   */
   public listNotes() {
     const existFile: boolean = fs.existsSync(`src/Database/${this.username}`);
 
@@ -176,6 +193,10 @@ export class User {
   }
 }
 
+/**
+ * Función para parsear en formato json las notas, para así almacenarlas en un fichero nuevo, que sea de
+ * extensión .json
+ */
 export function jsonFormat(title: string, body: string, color: string): string {
   return '{\n\t"title\": \"' + title + '\",\n\t"body\": \"' + body + '\",\n\t"color\": \"' + color + '\"\n}';
 }
