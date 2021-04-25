@@ -1,6 +1,6 @@
 # Práctica 8: Aplicación de procesamiento de notas de texto.
-## Autor: Adrián Hernández Suárez
-### Horario: PE103 - Jueves
+## Autor: Adrián Hernández Suárez.
+### Horario: PE103 - Jueves.
 
 ## GitHub Actions - Tests.
 
